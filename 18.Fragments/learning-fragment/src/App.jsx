@@ -9,20 +9,24 @@ import { Container } from "./components/Container";
 import { FoodInput } from "./components/FoodInput";
 
 function App() {
-  let foodItems = ["Dal", "Green vegetables", "Roti", "Salad", "Milk", "Ghee"];
-  let [livetext, setLivetext] = useState("");
+  let [foodItems, setFoodItems] = useState([
+    "Sabji",
+    "Green vegetables",
+    "Roti",
+  ]);
   const Onkeydown = (event) => {
     if (event.key === "Enter") {
       console.log(event);
-      setLivetext(event.target.value);
+      let newfood = event.target.value;
+      let newItems = [...foodItems, newfood];
+      setFoodItems(newItems)
     }
   };
   return (
     <Container>
       <h1 className="food-heading">Healthy Foods</h1>
-      <ErrorMessage items={foodItems} />
       <FoodInput handleKeydown={Onkeydown} />
-      <p>{livetext}</p>
+      <ErrorMessage items={foodItems} />
       <FoodItems items={foodItems} />
     </Container>
   );
