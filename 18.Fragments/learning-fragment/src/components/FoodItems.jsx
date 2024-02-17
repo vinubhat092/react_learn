@@ -5,7 +5,7 @@ const FoodItems = ({items}) => {
     <>
       <ul className="list-group">
         {items.map((item) => (
-          <Food key={item} foodItems={item} />
+          <Food key={item} foodItems={item} handlebuybutton = {()=> console.log(`${item} clicked`)} />
         ))}
       </ul>
     </>
