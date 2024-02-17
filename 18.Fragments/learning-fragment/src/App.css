@@ -1,5 +1,5 @@
 .kg-name {
-    background-color: khaki;
+    color: orange;
 }
 
 .kg-span {
@@ -8,6 +8,7 @@
 }
 
 .food-heading {
-    background-color: silver;
     color: brown;
+    text-align: center;
 }
+
