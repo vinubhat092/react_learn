@@ -6,11 +6,22 @@ import Display from "./components/display";
 import ButtonsContainer from "./components/ButtonsContainer";
 
 function App() {
-  let [calval, setCalval] = useState("1")
+  let [calval, setCalval] = useState("");
+  const handleButtonclick = (buttonText) => {
+    if (buttonText === "C") {
+      setCalval("");
+    } else if (buttonText === "=") {
+      let result = eval(calval);
+      setCalval(result);
+    } else {
+      let finalVal = calval + buttonText;
+      setCalval(finalVal);
+    }
+  };
   return (
     <div className={styles.calculator}>
-      <Display displayValue = {calval} />
-      <ButtonsContainer />
+      <Display displayValue={calval} />
+      <ButtonsContainer handleButtonclick={handleButtonclick} />
     </div>
   );
 }

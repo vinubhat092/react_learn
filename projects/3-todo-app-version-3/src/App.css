@@ -1,0 +1,25 @@
+/* h1 {
+    font-weight: 900;
+    font-size: 40px;
+    margin: 18px;
+    margin-bottom: 40px;
+  } */
+
+input {
+    width: 100%;
+    font-size: 11px;
+}
+
+.item-container {
+    width: 100%;
+    font-size: 20px;
+}
+
+.kg-row {
+    margin: 15px;
+}
+
+.kg-btn {
+    width: 100px;
+}
+  
