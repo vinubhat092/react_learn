@@ -9,31 +9,22 @@ import TodoItem from "./components/TodoItem";
 import WelcomeMessage from "./components/WelcomeMessage";
 
 function App() {
-  // const todoItems = [
-  //   {
-  //     todoname: "first todo",
-  //     dueDate: "12/02/2024",
-  //   },
-  //   {
-  //     todoname: "second todo",
-  //     dueDate: "14/02/2024",
-  //   },
-  // ];
   const [todoItems, setTodoItem] = useState([]);
   const handleOnbuy = (todoname, duedate) => {
-    const newTodoItem = [...todoItems, { todoname, duedate }]
-    setTodoItem(newTodoItem);
+    setTodoItem((currValue) =>[
+      ...currValue,{todoname,duedate}
+    ]);
   };
   const onDeletebutton = (todoName) =>{
     const removeItem = todoItems.filter(item => item.todoname !== todoName) 
-    console.log(`delted item ${todoName}`)
+    console.log(`deleted item ${todoName}`)
     setTodoItem(removeItem);
   }
   return (
     <center className="todo-container">
       <AppName />
       <AddTodo handleOnbuy={handleOnbuy} />
-      {todoItems.length ===0 && <WelcomeMessage /> }
+      <WelcomeMessage todoItems={todoItems}/> 
       <div className="item-container">
         {todoItems.map((item) => (
           <TodoItem key={item} todoName={item.todoname} todoDate={item.duedate} handleDeletebutton={onDeletebutton}/>

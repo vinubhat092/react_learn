@@ -1,7 +1,7 @@
 
-const WelcomeMessage = () => {
+const WelcomeMessage = ({todoItems}) => {
   return (
-    <div>Enjoy your day</div>
+    !todoItems && <div>Enjoy your day</div>
   )
 }
 
