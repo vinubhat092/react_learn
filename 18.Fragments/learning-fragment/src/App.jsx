@@ -19,7 +19,7 @@ function App() {
       console.log(event);
       let newfood = event.target.value;
       let newItems = [...foodItems, newfood];
-      setFoodItems(newItems)
+      setFoodItems(newItems);
     }
   };
   return (

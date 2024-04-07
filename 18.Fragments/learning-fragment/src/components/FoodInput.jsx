@@ -1,6 +1,6 @@
 import styles from "./FoodInput.module.css";
 
-export const FoodInput = ({handleKeydown}) => {
+export const FoodInput = ({ handleKeydown }) => {
   return (
     <input
       type="text"

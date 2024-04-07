@@ -23,7 +23,9 @@ function App() {
       <AppName />
       <AppTodo />
       <div className="item-container">
-        {todoItems.map((item)=>(<TodoItem todoName={item.todoname} todoDate={item.todoDate} />))}
+        {todoItems.map((item) => (
+          <TodoItem todoName={item.todoname} todoDate={item.todoDate} />
+        ))}
       </div>
     </center>
   );

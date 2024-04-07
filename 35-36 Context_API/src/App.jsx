@@ -9,7 +9,6 @@ import TodoItem from "./components/TodoItem";
 import WelcomeMessage from "./components/WelcomeMessage";
 import TodoItemsContextProvider from "./store/todo-item-store";
 
-
 function App() {
   return (
     <TodoItemsContextProvider>
