@@ -5,6 +5,7 @@ export const PostList = createContext({
   postList: [],
   addPost: () => {},
   deletePost: () => {},
+  addInitialPosts: () => {},
 });
 
 const PostListReducer = (currPostList, action) => {
@@ -13,6 +14,8 @@ const PostListReducer = (currPostList, action) => {
     newPostList = currPostList.filter(
       (post) => post.id !== action.payload.postId
     );
+  } else if (action.type == "ADD_INITIAL_POSTS") {
+    newPostList = action.payload.posts;
   } else if (action.type === "ADD_POST") {
     newPostList = [action.payload, ...currPostList];
   }
@@ -21,13 +24,9 @@ const PostListReducer = (currPostList, action) => {
 };
 
 const PostListProvider = ({ children }) => {
-  const [postList, dispatchPostList] = useReducer(
-    PostListReducer,
-    DEFAULT_POST_LIST
-  );
+  const [postList, dispatchPostList] = useReducer(PostListReducer, []);
 
   const addPost = (userId, postTitle, postBody, reactions, tags) => {
-    console.log("hhh", tags);
     dispatchPostList({
       type: "ADD_POST",
       payload: {
@@ -40,6 +39,16 @@ const PostListProvider = ({ children }) => {
       },
     });
   };
+
+  const addInitialPosts = (posts) => {
+    dispatchPostList({
+      type: "ADD_INITIAL_POSTS",
+      payload: {
+        posts,
+      },
+    });
+  };
+
   const deletePost = (postId) => {
     dispatchPostList({
       type: "DELETE_POST",
@@ -50,38 +59,12 @@ const PostListProvider = ({ children }) => {
   };
 
   return (
-    <PostList.Provider value={{ postList, addPost, deletePost }}>
+    <PostList.Provider
+      value={{ postList, addPost, deletePost, addInitialPosts }}
+    >
       {children}
     </PostList.Provider>
   );
 };
-
-// const DEFAULT_POST_LIST = [
-//   {
-//     id: "1",
-//     title: "Going to Mumbai",
-//     body: "Hi friends am going to mumbai for vacation",
-//     reactions: 2,
-//     userID: "user-9",
-//     tags: ["vacation", "Mumbai", "Enjoying"],
-//   },
-//   {
-//     id: "2",
-//     title: "cleared btech",
-//     body: "passed btech after enjou=ying 4 years",
-//     reactions: 15,
-//     userID: "user-12",
-//     tags: ["engineering0", "Unbeleivable", "Graduating"],
-//   },
-// ];
-const DEFAULT_POST_LIST = fetch("https://dummyjson.com/posts")
-  .then((res) => res.json())
-  .then((data) => {
-    console.log(data); // Log the data to the console
-    return data.posts; // Return the data to be used further
-  })
-  .catch((error) => {
-    console.error("Error fetching data:", error); // Handle any errors that occur during the fetch
-  });
 
 export default PostListProvider;
