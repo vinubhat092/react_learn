@@ -1,7 +1,6 @@
 import React from "react";
 
 const LoadingSpinner = () => {
-  console.log("commmm");
   return (
     <div className="d-flex justify-content-center spinner">
       <div className="spinner-border" role="status" style={{width: "5rem", height: "5rem"}}>

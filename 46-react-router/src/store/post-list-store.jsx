@@ -65,7 +65,6 @@ const PostListProvider = ({ children }) => {
           setFetching(false);
         });
       return () => {
-        console.log("cleaning up useffect");
         controller.abort();
       };
     }, []);
