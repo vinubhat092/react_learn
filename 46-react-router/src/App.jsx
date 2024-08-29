@@ -4,7 +4,7 @@ import viteLogo from "/vite.svg";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Footer from "./components/Footer";
-import Header from "./components/header";
+import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
 import CreatePoster from "./components/CreatePoster";
 import Post from "./components/Post";
