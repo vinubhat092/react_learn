@@ -10,6 +10,7 @@ import CreatePoster from "./components/CreatePoster";
 import Post from "./components/Post";
 import PostList from "./components/PostList";
 import PostListProvider from "./store/post-list-store";
+import {Outlet} from "react-router-dom"
 
 function App() {
   const [selectedTab, setSelectedTab] = useState("Home");
@@ -22,12 +23,7 @@ function App() {
         ></Sidebar>
         <div className="content">
           <Header></Header>
-          {selectedTab === "Home" ? (
-            <PostList></PostList>
-          ) : (
-            <CreatePoster></CreatePoster>
-          )}
-
+          <Outlet />
           <Footer></Footer>
         </div>
       </div>

@@ -4,6 +4,7 @@ import { MdDelete } from "react-icons/md";
 import { PostList } from "../store/post-list-store";
 const Post = ({ post }) => {
     const {deletePost} = useContext(PostList)
+    console.log("post",post)
   return (
     <div class="card post-card" style={{ width: "30rem" }}>
       <div class="card-body">
@@ -19,7 +20,7 @@ const Post = ({ post }) => {
           <span key={tag} class="badge text-bg-primary hashtag">{tag}</span>
         ))}
         <div class="alert alert-success reactions" role="alert">
-          This post been reacted by {post.reactions} people
+          This post been reacted by {post.reactions.likes} people
         </div>
       </div>
     </div>

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Sidebar = ({ selectedTab,setSelectedTab }) => {
   return (
@@ -17,13 +18,9 @@ const Sidebar = ({ selectedTab,setSelectedTab }) => {
       </a>
       <hr />
       <ul className="nav nav-pills flex-column mb-auto">
-        <li className="nav-item" onClick={()=> setSelectedTab("Home")}>
+        <li className="nav-item">
           <a
-            href="#"
-            className={`nav-link text-white ${
-              selectedTab === "Home" && "active"
-            }`}
-            aria-current="page"
+            href="/" className="nav-link text-white" area-current='page'
           >
             <svg className="bi pe-none me-2" width="16" height="16">
               <use xlinkHref="#home"></use>
@@ -31,23 +28,20 @@ const Sidebar = ({ selectedTab,setSelectedTab }) => {
             Home
           </a>
         </li>
-        <li onClick={()=> setSelectedTab("Create Post")}>
-          <a
-            href="#"
-            className={`nav-link text-white ${
-              selectedTab === "Create Post" && "active"
-            }`}
+        <li>
+          <Link
+            to="/create-post" className="nav-link text-white" area-current='page'
           >
             <svg className="bi pe-none me-2" width="16" height="16">
               <use xlinkHref="#speedometer2"></use>
             </svg>
             Create Post
-          </a>
+          </Link>
         </li>
       </ul>
       <hr />
       <div className="dropdown">
-        <a
+        <Link
           href="#"
           className="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
           data-bs-toggle="dropdown"
@@ -61,7 +55,7 @@ const Sidebar = ({ selectedTab,setSelectedTab }) => {
             className="rounded-circle me-2"
           />
           <strong>mdo</strong>
-        </a>
+        </Link>
         <ul className="dropdown-menu dropdown-menu-dark text-small shadow">
           <li>
             <a className="dropdown-item" href="#">
